@@ -14,7 +14,7 @@ setup(
     name='csvloader',
     packages=['csvloader'],
     version=VERSION,
-    description='QPack (de)serializer',
+    description='Fast C-implementation for reading CSV data into Python',
     author='Jeroen van der Heijden',
     author_email='jeroen@transceptor.technology',
     url='https://github.com/transceptor-technology/csvloader',
