@@ -8,7 +8,7 @@ maybe in some future we will also create an 'export-to-CSV' method.
 >Note:
 >-----
 >This module is not a replacement for the Pyton CSV module and should only
->be used if you want to parse (rather strict) csv strings (fast!). We do not
+>be used if you want to parse (rather strict) csv strings. We do not
 >support reading from file directly or different dialects etc. Go for the
 >[csv module](https://docs.python.org/3/library/csv.html) if you need more
 >options.
