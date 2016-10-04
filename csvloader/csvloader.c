@@ -120,8 +120,7 @@ static int loads(PyObject * grid, Py_ssize_t length, const char * content)
     char c;
     Py_ssize_t word_len, replace_len;
     bool in_quotes, is_quoted, is_int, is_float;
-    PyObject * row;
-    PyObject * obj;
+    PyObject * row, * obj;
 
     if ((row = PyList_New(0)) == NULL)
     {
