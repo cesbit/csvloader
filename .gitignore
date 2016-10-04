@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.module-cache*
+.project
+.pydevproject
+.idea
+.cproject
+.settings/
+test.py
+*.so
+*.o
+build/
+test/
+checklist.txt
+Debug/
