@@ -1,9 +1,6 @@
-/* C-CSV module
+/* CSV Loader module
  *
- * This module is created especially for SiriDB and should be used with caution.
- * We do make some assumptions about the data so be careful!
- *
- * 2015, Jeroen van der Heijden (Transceptor Technology)
+ * 2016, Jeroen van der Heijden (Transceptor Technology)
  */
 
 #include <Python.h>
@@ -114,6 +111,9 @@ static char * replace_str(const char * content, Py_ssize_t * length)
     return quoted_str;
 }
 
+/*
+ * Returns 0 if successful or -1 in case or an error.
+ */
 static int loads(PyObject * grid, Py_ssize_t length, const char * content)
 {
     int rc;
@@ -350,12 +350,17 @@ static PyObject * csvloader_loads(PyObject * self, PyObject * args)
         return NULL;  /* PyErr is set */
     }
 
-    /* Create grid and first row. */
+    /* Create grid */
     if ((obj = PyList_New(0)) == NULL)
     {
         return NULL;
     }
 
+    /* Warning:
+     *  we use a static quoted_str so we do not need to allocate
+     *  space for each quoted string. This is however not thread safe
+     *  and should be solved different in case we need to be.
+     */
     quoted_len = INIT_ALLOC_SZ;
     quoted_str = (char *) malloc(quoted_len);
 
