@@ -1,3 +1,7 @@
+2016.11.29, Version 0.0.2 (BETA)
+
+  * Compatible with C89/C90 dialect.
+
 2016.10.04, Version 0.0.1 (BETA)
 
   * Initial version (only parsing CSV to Python is supported)

@@ -82,6 +82,9 @@ static Py_ssize_t quoted_len = 0;
  */
 static char * replace_str(const char * content, Py_ssize_t * length)
 {
+    Py_ssize_t i;
+    char * dp;
+
     *length -= 2;
     if (quoted_len < *length)
     {
@@ -95,9 +98,9 @@ static char * replace_str(const char * content, Py_ssize_t * length)
     }
 
     content++;
-    char * dp = quoted_str;
+    dp = quoted_str;
 
-    for (Py_ssize_t i = *length; i--; content++, dp++)
+    for (i = *length; i--; content++, dp++)
     {
         if (*content == '"')
         {
