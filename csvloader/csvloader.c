@@ -115,7 +115,7 @@ static char * replace_str(const char * content, Py_ssize_t * length)
 }
 
 /*
- * Returns 0 if successful or -1 in case or an error.
+ * Returns 0 if successful or -1 in case or an error. (PyErr will be set)
  */
 static int loads(PyObject * grid, Py_ssize_t length, const char * content)
 {
@@ -368,6 +368,10 @@ static PyObject * csvloader_loads(PyObject * self, PyObject * args)
 
     if (quoted_str == NULL || loads(obj, length, content))
     {
+        if (quoted_str == NULL)
+        {
+            PyErr_SetString(PyExc_MemoryError, "Memory allocation error");
+        }
         Py_DECREF(obj);
         obj = NULL;
     }

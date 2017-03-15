@@ -1,3 +1,7 @@
+2017.x.x, Version 0.0.3 (BETA)
+
+  * Correctly set PyErr when malloc for quoted_str has failed.
+
 2016.11.29, Version 0.0.2 (BETA)
 
   * Compatible with C89/C90 dialect.
